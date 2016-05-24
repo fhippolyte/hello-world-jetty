@@ -1,6 +1,7 @@
 package org.test;
 
 import java.io.IOException;
+import java.util.Random;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -12,6 +13,8 @@ import org.eclipse.jetty.server.handler.AbstractHandler;
 
 public class HelloWorld extends AbstractHandler {
 	
+	private static int id = -1;
+	
 	public void handle(String target, Request baseRequest, HttpServletRequest request, HttpServletResponse response)
 			throws IOException, ServletException {
 		
@@ -19,9 +22,16 @@ public class HelloWorld extends AbstractHandler {
 		response.setStatus(HttpServletResponse.SC_OK);
 		baseRequest.setHandled(true);
 		response.getWriter().println("<h1>Hello World</h1>");
+		response.getWriter().println("<h2>Server id = " + id + "</h2>");
 	}
 
 	public static void main(String[] args) throws Exception {
+		
+		// Generate id
+		Random randomGenerator = new Random();
+		id = randomGenerator.nextInt(10000);
+		
+		// Start server
 		Server server = new Server(8080);
 		server.setHandler(new HelloWorld());
 
