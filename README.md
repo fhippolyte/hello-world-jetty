@@ -1,7 +1,7 @@
-# Simple jetty server for testing
+mvn clean compile exec:java# Simple jetty server for testing
 
 ## build
 mvn clean package
 
 ## run
-java -jar target/hello-world-0.2-SNAPSHOT.jar
+mvn clean compile exec:java
