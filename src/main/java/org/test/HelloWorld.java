@@ -7,11 +7,15 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.eclipse.jetty.server.Request;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.server.handler.AbstractHandler;
 
+
 public class HelloWorld extends AbstractHandler {
+	static final Logger logger = LogManager.getLogger(HelloWorld.class.getName());
 	
 	private static int id = -1;
 	
@@ -23,6 +27,8 @@ public class HelloWorld extends AbstractHandler {
 		baseRequest.setHandled(true);
 		response.getWriter().println("<h1>Hello World</h1>");
 		response.getWriter().println("<h2>Server id = " + id + "</h2>");
+		
+		logger.info(target);
 	}
 
 	public static void main(String[] args) throws Exception {
