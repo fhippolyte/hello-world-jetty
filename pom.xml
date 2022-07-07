@@ -10,7 +10,7 @@
 	<name>Jetty HelloWorld</name>
 
 	<properties>
-		<jettyVersion>9.4.35.v20201120</jettyVersion>
+		<jettyVersion>10.0.10</jettyVersion>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
 	</properties>
